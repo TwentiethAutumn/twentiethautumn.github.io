@@ -5,27 +5,28 @@
 	<title>
 		Интернет-магазин
 	</title>
-	<meta name="description" content="Сайт об HTML и создании сайтов"> 
-	<meta name="Keywords" content="HTML, META, метатег, тег, поисковая система"> 
+	<meta name="description" content="интернет зоомагазин"> 
+	<meta name="Keywords" content="зоомагазин, животные, домашние животные"> 
 	<link rel="stylesheet" href="outlines.css">
+	<script src="scripts/everypage.js"></script>
 </head>
 <body>
 	<header class="header-wrapper">
 			<div class="header-logo">
-				Logo
+				<a href="index.html"> Logo </a>
 			</div>
 			<div class="header-nav-search">
 				Search
 			</div>
 			<div class="header-auth">
-				Auth
+				<a href="auth.html"> Auth </a>
 			</div>
 	</header>
 	
 	<div class="main-wrapper">
 		<div class="main-categories">
 			<nav class="main-categories-list">
-				<div><a href="#"> cat1 </a><div>
+				<div><a href="todo.html"> todo list </a><div>
 				<div><a href="#"> cat2 </a></div>
 				<div><a href="#"> cat3 </a></div>
 			</nav>
@@ -247,7 +248,14 @@
 	</div>
 	
 	<footer class="footer-wrapper">
-			footer	
+			Page load time	
+			<q id='page-load'> </q> <q id='every-page'> </q>
+			<script language="JavaScript">
+				window.onload = function(){
+					var loadTime = window.performance.timing.domContentLoadedEventEnd - window.performance.timing.navigationStart;
+					document.getElementById('page-load').innerHTML = loadTime;
+				};
+			</script>
 	</footer>
 </body>
 </html>
