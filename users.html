@@ -15,9 +15,16 @@
 	
 	<link rel="stylesheet" href="outlines.css">
 	<script src="scripts/everypage.js"></script>
-	<script src="scripts/newtodo.js"></script>
+	<script src="scripts/loadUsers.js"></script>
 </head>
 <body>
+	<div class="preloader">
+		<div class="preloader__row">
+			<div class="preloader__item"></div>
+			<div class="preloader__item"></div>
+		</div>
+	</div>
+	
 	<header class="header-wrapper">
 			<div class="header-logo">
 				<a href="index.html"> Logo </a>
@@ -38,19 +45,24 @@
 				<div><a href="#"> cat3 </a></div>
 			</nav>
 		</div>
-		<main class="main-content">
-			<form name="todo" onSubmit="appendList(this); iziToast.show({
+		<main class="main-content" id="content">
+			<script>
+				let res = getUsers();
+				res.then(function(result){
+					iziToast.show({
 						title: '',
-						message: 'New item successfully added!'
-					}); return false;">
-				<input type=text id="item">
-				<input type=submit value="добавить">
-			</form>
-			Список дел
-			<div id=todolist>
-			</div>
-			<script language="JavaScript">
-				window.onload = loadTodo();
+						message: 'Users successfully loaded!'
+					});
+					onSuccess(result);
+					
+				});
+				res.catch(function(){
+					iziToast.show({
+						title: 'Error',
+						message: 'Something goes wrong o.o'
+					});
+					onReject();
+				});
 			</script>
 		</main>
 	</div>

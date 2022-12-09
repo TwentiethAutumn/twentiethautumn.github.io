@@ -7,6 +7,12 @@
 	</title>
 	<meta name="description" content="интернет зоомагазин"> 
 	<meta name="Keywords" content="зоомагазин, животные, домашние животные"> 
+	
+	<link rel="stylesheet" href="iziToast-master\dist\css\iziToast.css">
+	<link rel="stylesheet" href="iziToast-master\dist\css\iziToast.min.css">
+	<script src="iziToast-master\dist\js\iziToast.js"></script>
+	<script src="iziToast-master\dist\js\iziToast.min.js"></script>
+	
 	<link rel="stylesheet" href="outlines.css">
 	<script src="scripts/everypage.js"></script>
 </head>
@@ -27,12 +33,15 @@
 		<div class="main-categories">
 			<nav class="main-categories-list">
 				<div><a href="todo.html"> todo list </a><div>
-				<div><a href="#"> cat2 </a></div>
+				<div><a href="users.html"> users </a></div>
 				<div><a href="#"> cat3 </a></div>
 			</nav>
 		</div>
 		<main class="main-content">
-			<form>
+			<form onSubmit="iziToast.show({
+						title: 'Error',
+						message: 'Sorry, this function not implemented now'
+					}); return false;">
 				Логин <br>
 				<input type="text"> <br>
 				Пароль <br>
